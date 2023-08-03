@@ -8,7 +8,7 @@ export default async function Categories() {
       <Steps />
       <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
         <div className="flex flex-col">
-          <DividerHeading>Choose your favorite categories</DividerHeading>
+          <DividerHeading>3. Choose your favorite categories</DividerHeading>
           <ChooseCategories />
         </div>
       </div>

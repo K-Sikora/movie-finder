@@ -15,11 +15,11 @@ export function InfoDrawer() {
   return (
     <Drawer.Root fixedHeight>
       <Drawer.Trigger asChild>
-        <Button>See currently chosen</Button>
+        <Button variant={"outline"}>See currently chosen</Button>
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-30 bg-black/40" />
-        <Drawer.Content className="flex flex-col z-40 rounded-t-[10px] max-h-[85vh] mt-24 fixed bottom-0 left-0 right-0">
+        <Drawer.Content className="flex flex-col z-40 rounded-t-[10px] max-h-[70vh] md:max-h-[85vh] mt-24 fixed bottom-0 left-0 right-0">
           <div className="p-4 bg-background rounded-t-[10px] overflow-auto flex-1">
             <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300 mb-8" />
             <div className="max-w-5xl mx-auto">
@@ -27,7 +27,7 @@ export function InfoDrawer() {
                 Your currently chosen actors, movies and categories.
               </Drawer.Title>
               <DividerHeading>Actors</DividerHeading>
-              <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-5 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+              <div className="grid grid-cols-3 gap-2 my-6 gap-y-8 xs:grid-cols-5 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
                 {actors.map((actor) => (
                   <SingleActor
                     key={actor.id}
@@ -36,7 +36,7 @@ export function InfoDrawer() {
                 ))}
               </div>
               <DividerHeading>Movies</DividerHeading>
-              <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-5 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+              <div className="grid grid-cols-3 gap-2 my-6 gap-y-8 xs:grid-cols-5 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
                 {movies.map((movie) => (
                   <SingleMovie
                     key={movie.id}

@@ -19,7 +19,7 @@ export default async function Movies(props: Props) {
       <Steps />
       <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
         <div className="flex flex-col">
-          <DividerHeading>Choose your favorite movies</DividerHeading>
+          <DividerHeading>2. Choose your favorite movies</DividerHeading>
           {!searchParams.movieQuery ? "" : ""}
           <ChooseMovies query={searchParams.movieQuery} />
           {!searchParams.movieQuery && (

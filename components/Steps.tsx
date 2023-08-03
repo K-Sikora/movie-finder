@@ -4,11 +4,12 @@ import { usePathname } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { InfoDrawer } from "./Drawer";
+import { useToast } from "./ui/use-toast";
 export default function Steps() {
   const pathname = usePathname();
-
+  const { toast } = useToast();
   const dispatch = useDispatch<AppDispatch>();
   const categories = useAppSelector((state) => state.categoriesReducer);
   const movies = useAppSelector((state) => state.moviesReducer);
@@ -27,11 +28,23 @@ export default function Steps() {
       isFinished: categories.length >= 3,
     },
   ];
+  function handleFinish() {
+    const allFinished = stepsInfo.every((step) => step.isFinished);
+    if (allFinished) {
+      // TODO: SEND INFO
+    } else {
+      stepsInfo.forEach((step) => {
+        !step.isFinished
+          ? toast({
+              title: "Something went wrong 🙁",
+              description: `You need to choose more ${step.name}.`,
+            })
+          : null;
+      });
+    }
+  }
   return (
     <div className="flex flex-col max-w-5xl gap-12 px-4 py-12 mx-auto">
-      <div>
-        <InfoDrawer />
-      </div>
       <div className="flex flex-wrap items-start gap-8">
         {stepsInfo.map((step) => (
           <div
@@ -45,27 +58,34 @@ export default function Steps() {
             >
               <AiOutlineCheck className="w-4 h-4" />
             </div>
-            <span className="font-medium capitalize md:text-lg">
+            <Link
+              href={`/${step.name}`}
+              className="font-medium capitalize md:text-lg"
+            >
               {step.name}
-            </span>
+            </Link>
           </div>
         ))}
       </div>
       <div className="flex justify-between w-full">
-        {pathname !== "/actors" && (
-          <Link
-            href={pathname === "/movies" ? "/actors" : "/movies"}
-            className={`${buttonVariants({ variant: "default" })}`}
+        <div>
+          <InfoDrawer />
+        </div>
+        {pathname === "/categories" ? (
+          <Button
+            onClick={handleFinish}
+            className="ml-auto"
           >
-            Go back
+            Finish
+          </Button>
+        ) : (
+          <Link
+            href={pathname === "/actors" ? "/movies" : "/categories"}
+            className={`${buttonVariants({ variant: "default" })} ml-auto`}
+          >
+            Next step
           </Link>
         )}
-        <Link
-          href={pathname === "/actors" ? "/movies" : "/categories"}
-          className={`${buttonVariants({ variant: "default" })} ml-auto`}
-        >
-          Next step
-        </Link>
       </div>
     </div>
   );

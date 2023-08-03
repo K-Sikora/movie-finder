@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
 import { ThemesProvider } from "@/components/ThemesProvider";
 import { Space_Grotesk } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -25,6 +26,7 @@ export default function RootLayout({
             <ReduxProvider>
               <Navbar />
               {children}
+              <Toaster />
             </ReduxProvider>
           </ThemesProvider>
         </body>

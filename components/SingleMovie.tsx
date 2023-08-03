@@ -44,7 +44,7 @@ export default function SingleMovie(props: Props) {
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           width={126}
           height={189}
-          className="w-full"
+          className="w-full rounded-t-md"
           alt={movie.title}
         />
         {movies.some((movieElement) => movieElement.id === movie.id) && (

@@ -29,6 +29,9 @@ export default function Steps() {
   ];
   return (
     <div className="flex flex-col max-w-5xl gap-12 px-4 py-12 mx-auto">
+      <div>
+        <InfoDrawer />
+      </div>
       <div className="flex flex-wrap items-start gap-8">
         {stepsInfo.map((step) => (
           <div
@@ -64,7 +67,6 @@ export default function Steps() {
           Next step
         </Link>
       </div>
-      <InfoDrawer />
     </div>
   );
 }

@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 type InitialState = {
   id: string;
-  name: string;
-  profile_path: string;
+  poster_path: string;
+  title: string;
 };
-
-export const actors = createSlice({
-  name: "actors",
+export const movies = createSlice({
+  name: "movies",
   initialState: [] as InitialState[],
   reducers: {
     update: (state, action: PayloadAction<InitialState>) => {
@@ -20,5 +18,5 @@ export const actors = createSlice({
   },
 });
 
-export const { update, remove } = actors.actions;
-export default actors.reducer;
+export const { update, remove } = movies.actions;
+export default movies.reducer;

@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
 
-export default function SearchActor() {
+export default function SearchMovie() {
   const searchParams = useSearchParams();
   const movieQuery = searchParams.get("movieQuery");
   console.log(movieQuery);
@@ -24,7 +24,7 @@ export default function SearchActor() {
       onChange={(e) => {
         setSearch(e.target.value);
       }}
-      placeholder="Search actor..."
+      placeholder="Search movie..."
       className="my-6"
     />
   );

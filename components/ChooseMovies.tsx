@@ -1,28 +1,30 @@
-import { Actor } from "@/types";
-import SingleActor from "./SingleActor";
-import getActorsByName from "@/lib/services/getActorsByName";
+import { Movie } from "@/types";
 import SearchMovie from "./SearchMovie";
+import SingleMovie from "./SingleMovie";
+import getMoviesByName from "@/lib/services/getMoviesByName";
 
 type Props = {
   query: string;
 };
 export default async function ChooseMovies(props: Props) {
   const { query } = props;
-  const data = await getActorsByName(query);
-  const { results }: { results: Actor[] } = data;
+  const data = await getMoviesByName(query);
+  const { results }: { results: Movie[] } = data;
   return (
     <>
       <SearchMovie />
-      <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
-        {results
-          .filter((actor) => actor.profile_path)
-          .map((actor) => (
-            <SingleActor
-              key={actor.id}
-              actor={actor}
-            />
-          ))}
-      </div>
+      {query && (
+        <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+          {results
+            .filter((movie) => movie.poster_path)
+            .map((movie) => (
+              <SingleMovie
+                key={movie.id}
+                movie={movie}
+              />
+            ))}
+        </div>
+      )}
     </>
   );
 }

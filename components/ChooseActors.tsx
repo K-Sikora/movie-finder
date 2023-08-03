@@ -13,16 +13,18 @@ export default async function ChooseActors(props: Props) {
   return (
     <>
       <SearchActor />
-      <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
-        {results
-          .filter((actor) => actor.profile_path)
-          .map((actor) => (
-            <SingleActor
-              key={actor.id}
-              actor={actor}
-            />
-          ))}
-      </div>
+      {query && (
+        <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+          {results
+            .filter((actor) => actor.profile_path)
+            .map((actor) => (
+              <SingleActor
+                key={actor.id}
+                actor={actor}
+              />
+            ))}
+        </div>
+      )}
     </>
   );
 }

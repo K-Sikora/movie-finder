@@ -15,7 +15,7 @@ export default function SearchMovie() {
     if (!query) {
       router.push("/movies");
     } else {
-      router.push(`/movies?movieQuery=${query}`);
+      router.push(`/movies?query=${query}`);
     }
   }, [query, router]);
   return (

@@ -1,4 +1,4 @@
-import { Movie } from "@/types";
+import { Movie } from "@/types/Movie";
 import SearchMovie from "./SearchMovie";
 import SingleMovie from "./SingleMovie";
 import getMoviesByName from "@/lib/services/getMoviesByName";

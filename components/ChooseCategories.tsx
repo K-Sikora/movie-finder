@@ -1,4 +1,4 @@
-import { Category } from "@/types";
+import { Category } from "@/types/Category";
 import getCategories from "@/lib/services/getCategories";
 import SingleCategory from "./SingleCategory";
 

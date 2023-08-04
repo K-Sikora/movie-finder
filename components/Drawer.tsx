@@ -1,5 +1,5 @@
 "use client";
-import { AppDispatch, useAppSelector } from "@/redux/store";
+import { useAppSelector } from "@/redux/store";
 
 import { Drawer } from "vaul";
 import { Button } from "./ui/button";
@@ -7,6 +7,8 @@ import SingleActor from "./SingleActor";
 import DividerHeading from "./DividerHeading";
 import SingleMovie from "./SingleMovie";
 import SingleCategory from "./SingleCategory";
+import { AiFillGithub } from "react-icons/ai";
+import Link from "next/link";
 
 export function InfoDrawer() {
   const categories = useAppSelector((state) => state.categoriesReducer);
@@ -57,7 +59,9 @@ export function InfoDrawer() {
           </div>
           <div className="p-4 mt-auto border-t bg-background">
             <div className="flex justify-end max-w-md gap-6 mx-auto">
-              GitHub Twitter
+              <Link href="https://github.com/K-Sikora">
+                <AiFillGithub size={20} />
+              </Link>
             </div>
           </div>
         </Drawer.Content>

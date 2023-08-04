@@ -15,7 +15,7 @@ export default function SearchActor() {
     if (!query) {
       router.push("/actors");
     } else {
-      router.push(`/actors?actorQuery=${query}`);
+      router.push(`/actors?query=${query}`);
     }
   }, [query, router]);
   return (

@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import actorsReducer from "./features/actors-slice";
 import moviesReducer from "./features/movies-slice";
+import resultsReducer from "./features/results-slice";
 import categoriesReducer from "./features/categories-slice";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     actorsReducer,
     moviesReducer,
     categoriesReducer,
+    resultsReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

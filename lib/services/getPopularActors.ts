@@ -11,5 +11,6 @@ export default async function getPopularActors() {
     options
   );
   const data = await res.json();
+  console.log(data);
   return data;
 }

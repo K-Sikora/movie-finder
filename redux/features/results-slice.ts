@@ -2,16 +2,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 type InitialState = {
   page: number;
   results: {
-    id: number;
+    id: string;
     title: string;
-    backdrop_path: string;
+    poster_path: string;
+    vote_average: string;
   }[];
 };
 export const results = createSlice({
   name: "results",
-  initialState: {} as InitialState[],
+  initialState: {} as InitialState,
   reducers: {
-    update: (state, action: PayloadAction<InitialState[]>) => {
+    update: (state, action: PayloadAction<InitialState>) => {
       return action.payload;
     },
   },

@@ -33,9 +33,7 @@ export default function LoadingResultsAnimation(props: Props) {
               animate={{ opacity: [0, 1, 0], y: [100, -100] }}
               transition={{
                 duration: 1,
-                delay: index / 5,
-                repeat: 999,
-                repeatType: "reverse",
+                delay: index / 4,
               }}
               className="absolute w-full text-lg -translate-y-1/2 md:text-5xl top-1/2"
               key={name}

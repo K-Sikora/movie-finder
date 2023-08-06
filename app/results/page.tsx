@@ -17,12 +17,14 @@ export default function Results() {
       <DividerHeading>Movies you might like</DividerHeading>
 
       <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-7">
-        {results.map((result) => (
-          <SingleMovieResult
-            movie={result}
-            key={result.id}
-          />
-        ))}
+        {results
+          .filter((movie) => movie.poster_path)
+          .map((result) => (
+            <SingleMovieResult
+              movie={result}
+              key={result.id}
+            />
+          ))}
       </div>
     </div>
   );

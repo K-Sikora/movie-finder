@@ -28,11 +28,11 @@ export default function SingleMovieResult(props: Props) {
           className="object-cover w-full h-full rounded-t-md"
           alt={movie.title}
         />
-        <div className="absolute flex items-center gap-1 px-2 py-1 font-medium rounded-full text-accent bg-white/60 dark:bg-black/60 backdrop-blur-lg bottom-2 right-2">
+        <div className="absolute flex items-center gap-1 px-2 py-1 text-sm font-medium rounded-full md:text-base text-accent bg-white/60 dark:bg-black/60 bottom-2 right-2">
           <AiFillStar />
           <h3>{movie.vote_average}</h3>
         </div>
-        <div className="absolute z-10 flex items-center gap-1 p-1 font-medium rounded-full text-accent bg-white/80 dark:bg-black/80 backdrop-blur-lg top-2 left-2">
+        <div className="absolute z-10 flex items-center justify-center gap-1 font-medium rounded-full w-9 h-9 text-accent bg-white/80 dark:bg-black/80 top-2 left-2">
           <MdOutlineReadMore size={24} />
         </div>
       </div>

@@ -24,7 +24,7 @@ export default async function Actors(props: Props) {
       <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
         <div className="flex flex-col">
           <DividerHeading>1. Choose your favorite actors</DividerHeading>
-          <span className="mt-2">Select at least 3 actors</span>
+          <span className="mt-2 text-sm">Select at least 3 actors</span>
           <ChooseActors query={searchParams.query} />
           {!searchParams.query && (
             <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">

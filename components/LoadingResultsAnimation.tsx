@@ -20,10 +20,9 @@ export default function LoadingResultsAnimation(props: Props) {
 
   const movieNames = movies.map((movie) => movie.title);
   const categoryNames = categories.map((category) => category.name);
-
   const actorNames = actors.map((actor) => actor.name);
 
-  const names = movieNames.concat(categoryNames).concat(actorNames);
+  const names = [...movieNames, ...categoryNames, ...actorNames];
 
   return (
     <Dialog open={open}>
@@ -31,8 +30,13 @@ export default function LoadingResultsAnimation(props: Props) {
         <div className="relative w-full h-full text-center bg-background">
           {names.map((name, index) => (
             <motion.p
-              animate={{ opacity: [0, 1, 0], y: [150, -150] }}
-              transition={{ duration: 1, delay: index / 5 }}
+              animate={{ opacity: [0, 1, 0], y: [100, -100] }}
+              transition={{
+                duration: 1,
+                delay: index / 5,
+                repeat: 999,
+                repeatType: "reverse",
+              }}
               className="absolute w-full text-lg -translate-y-1/2 md:text-5xl top-1/2"
               key={name}
             >

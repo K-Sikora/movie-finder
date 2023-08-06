@@ -39,12 +39,13 @@ export default function SingleActor(props: Props) {
           : ""
       } group`}
     >
-      <div className="relative">
+      <div className="relative aspect-[9/16]">
         <Image
+          priority
           src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
           width={126}
           height={189}
-          className="w-full rounded-t-md"
+          className="object-cover w-full h-full rounded-t-md"
           alt={actor.name}
         />
         {actors.some((actorElement) => actorElement.id === actor.id) && (

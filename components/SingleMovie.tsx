@@ -39,12 +39,13 @@ export default function SingleMovie(props: Props) {
           : ""
       } group`}
     >
-      <div className="relative">
+      <div className="relative aspect-[9/16]">
         <Image
+          priority
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           width={126}
           height={189}
-          className="w-full rounded-t-md"
+          className="object-cover w-full h-full rounded-t-md"
           alt={movie.title}
         />
         {movies.some((movieElement) => movieElement.id === movie.id) && (

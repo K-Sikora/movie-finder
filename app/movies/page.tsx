@@ -22,7 +22,7 @@ export default async function Movies(props: Props) {
       <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
         <div className="flex flex-col">
           <DividerHeading>2. Choose your favorite movies</DividerHeading>
-          <span className="mt-2">Select at least 3 movies</span>
+          <span className="mt-2 text-sm">Select at least 3 movies</span>
           {!searchParams.query ? "" : ""}
           <ChooseMovies query={searchParams.query} />
           {!searchParams.query && (

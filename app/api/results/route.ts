@@ -1,3 +1,4 @@
+import { Movie } from "@/types/Movie";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 export async function POST(request: Request) {
@@ -58,7 +59,25 @@ export async function POST(request: Request) {
     options
   );
 
-  const data = await discover.json();
-  console.log(data);
-  return NextResponse.json(data);
+  const discoverData = await discover.json();
+  console.log(discoverData);
+
+  const resultMovieIds = discoverData.results.map((movie: Movie) => movie.id);
+  console.log(resultMovieIds);
+
+  async function getMovieDetails(id: number) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+      options
+    );
+    const data = await res.json();
+    return data;
+  }
+
+  const detailedDiscoverData = await Promise.all(
+    resultMovieIds.map((movieId: number) => getMovieDetails(movieId))
+  );
+  console.log(detailedDiscoverData);
+
+  return NextResponse.json(detailedDiscoverData);
 }

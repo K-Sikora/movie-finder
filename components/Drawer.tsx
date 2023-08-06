@@ -58,7 +58,7 @@ export function InfoDrawer() {
             </div>
           </div>
           <div className="p-4 mt-auto border-t bg-background">
-            <div className="flex justify-end max-w-md gap-6 mx-auto">
+            <div className="flex justify-end max-w-5xl gap-6 px-4 mx-auto">
               <Link href="https://github.com/K-Sikora">
                 <AiFillGithub size={20} />
               </Link>

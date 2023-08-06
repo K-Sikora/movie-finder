@@ -1,46 +1,84 @@
 "use client";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
+import { AiFillStar, AiOutlineCheck, AiOutlineLike } from "react-icons/ai";
+import { BsCalendar3 } from "react-icons/bs";
+import { FaImdb, FaRegClock } from "react-icons/fa";
+import Link from "next/link";
 import { Button } from "./ui/button";
-import { AiFillStar, AiOutlineCheck } from "react-icons/ai";
-import { MdOutlineReadMore } from "react-icons/md";
-const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 type Props = {
   movie: {
-    id: string;
-    title: string;
     poster_path: string;
-    vote_average: string;
+    id: number;
+    imdb_id: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    release_date: string;
+    runtime: number;
+    title: string;
+    vote_average: number;
+    vote_count: number;
   };
 };
 export default function SingleMovieResult(props: Props) {
   const { movie } = props;
-
+  console.log(movie);
   return (
     <div
-      className={`relative flex flex-col gap-2 pb-2 duration-200 border-2 rounded-lg shadow-md cursor-pointer hover:opacity-90 hover:border-primary `}
+      className={`flex w-full min-h-[9rem] md:h-56 border rounded-lg shadow-lg ${poppins.className}`}
     >
-      <div className="relative aspect-[9/16]">
+      <div className="relative w-24 h-full shadow-lg md:w-32 shrink-0">
         <Image
-          priority
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           fill
-          className="object-cover w-full h-full rounded-t-md"
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          className="object-cover w-full rounded-l-lg"
         />
-        <div className="absolute flex items-center gap-1 px-2 py-1 text-sm font-medium rounded-full md:text-base text-accent bg-white/60 dark:bg-black/60 bottom-2 right-2">
-          <AiFillStar />
-          <h3>{movie.vote_average}</h3>
+      </div>
+      <div className="flex flex-col justify-between p-2 md:p-4">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-lg font-medium md:text-xl">{movie.title}</h2>
+          <p className="text-sm line-clamp-3 md:line-clamp-5">
+            {movie.overview}
+          </p>
         </div>
-        <div className="absolute z-10 flex items-center justify-center gap-1 font-medium rounded-full w-9 h-9 text-accent bg-white/80 dark:bg-black/80 top-2 left-2">
-          <MdOutlineReadMore size={24} />
+        <div className="flex flex-wrap items-center gap-2 pt-2 text-sm md:text-base md:gap-4">
+          <div className="flex items-center gap-1">
+            <BsCalendar3 />
+            {movie.release_date.slice(0, 4)}
+          </div>
+          <div className="flex items-center gap-1">
+            <AiFillStar />
+            {movie.vote_average.toFixed(2)}
+          </div>
+          <div className="flex items-center gap-1">
+            <FaRegClock />
+            {movie.runtime}m
+          </div>
+          <Button
+            className="w-8 h-8"
+            size="icon"
+          >
+            <AiOutlineLike size={20} />
+          </Button>
+          <div className="flex items-center gap-1 md:ml-auto">
+            <Link
+              target="_blank"
+              href={`https://www.imdb.com/title/${movie.imdb_id}/`}
+            >
+              <Image
+                alt="imdb"
+                height={32}
+                width={32}
+                className="w-8"
+                src="/imdb-logo.png"
+              />
+            </Link>
+          </div>
         </div>
       </div>
-      <h2
-        className={`text-sm px-2 line-clamp-2 break-words ${poppins.className}`}
-      >
-        {movie.title}
-      </h2>
     </div>
   );
 }

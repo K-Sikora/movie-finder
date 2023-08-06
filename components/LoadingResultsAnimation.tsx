@@ -1,14 +1,8 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Actor } from "@/types/Actor";
 import { Category } from "@/types/Category";
 import { Movie } from "@/types/Movie";
 import { motion } from "framer-motion";
-import Image from "next/image";
 type Props = {
   open: boolean;
   actors: Actor[];

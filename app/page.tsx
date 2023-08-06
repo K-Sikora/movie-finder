@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import { SignInButton } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
 export default function Home() {
   return (
@@ -18,7 +19,6 @@ export default function Home() {
         <SignInButton>
           <Button>Sign In</Button>
         </SignInButton>
-
         <div className="flex items-center justify-center">
           <span className="h-[1px] bg-input w-full"></span>
           <span className="px-2 font-medium">OR</span>

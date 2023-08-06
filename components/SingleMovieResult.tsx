@@ -46,10 +46,10 @@ export default function SingleMovieResult(props: Props) {
             {movie.runtime}m
           </div>
           <Button
-            className="w-8 h-8"
+            className="w-7 h-7 md:w-8 md:h-8"
             size="icon"
           >
-            <AiOutlineLike size={20} />
+            <AiOutlineLike size={19} />
           </Button>
           <div className="flex items-center gap-1 md:ml-auto">
             <Link

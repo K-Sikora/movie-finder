@@ -35,7 +35,7 @@ export default function SingleMovie(props: Props) {
           : ""
       } group`}
     >
-      <div className="relative aspect-[9/16]">
+      <div className="relative aspect-[10/16]">
         <Image
           priority
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

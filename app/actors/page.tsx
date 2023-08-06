@@ -26,7 +26,7 @@ export default async function Actors(props: Props) {
           <span className="mt-2 text-sm">Select at least 3 actors</span>
           <ChooseActors query={searchParams.query} />
           {!searchParams.query && (
-            <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+            <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-7 xl:grid-cols-8">
               {results
                 .filter((actor) => actor.profile_path)
                 .map((actor) => (

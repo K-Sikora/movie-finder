@@ -26,7 +26,7 @@ export default async function Movies(props: Props) {
           {!searchParams.query ? "" : ""}
           <ChooseMovies query={searchParams.query} />
           {!searchParams.query && (
-            <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-8">
+            <div className="grid grid-cols-3 gap-2 gap-y-8 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-7 xl:grid-cols-8">
               {results
                 .filter((movie) => movie.poster_path)
                 .map((movie) => (

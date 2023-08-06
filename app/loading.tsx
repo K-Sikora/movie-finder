@@ -25,7 +25,7 @@ export default function Loading() {
     <div className="flex items-center justify-center min-h-screen -mt-20">
       <div className="loading-bar">
         <LoadingBar
-          color="hsl(264, 56%, 45%)"
+          color="hsl(231, 52%, 48%)"
           progress={progress}
           onLoaderFinished={() => setProgress(100)}
         />

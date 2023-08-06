@@ -51,7 +51,7 @@ export default function Steps() {
     }
   }
 
-  const { mutate, isLoading } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["sendInfo"],
     mutationFn: sendInfo,
     onSuccess: (data) => {

@@ -20,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html
+        lang="en"
+        suppressHydrationWarning
+      >
         <body className={space_grotesk.className}>
           <ThemesProvider>
             <ReduxProvider>

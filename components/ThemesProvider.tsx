@@ -1,25 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
 
-import { ThemeProvider } from "next-themes";
-
-export function ThemesProvider({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProviderProps } from "next-themes/dist/types";
+export function ThemesProvider({ children, ...props }: ThemeProviderProps) {
   return (
-    <ThemeProvider
+    <NextThemesProvider
+      {...props}
       attribute="class"
       defaultTheme="dark"
     >
       {children}
-    </ThemeProvider>
+    </NextThemesProvider>
   );
 }

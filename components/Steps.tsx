@@ -10,7 +10,10 @@ import { Button, buttonVariants } from "./ui/button";
 import { InfoDrawer } from "./Drawer";
 import { useToast } from "./ui/use-toast";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
+import LoadingResultsAnimation from "./LoadingResultsAnimation";
 export default function Steps() {
+  const [animation, setAnimation] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const { toast } = useToast();
@@ -19,7 +22,6 @@ export default function Steps() {
   const categories = useAppSelector((state) => state.categoriesReducer);
   const movies = useAppSelector((state) => state.moviesReducer);
   const actors = useAppSelector((state) => state.actorsReducer);
-  const results = useAppSelector((state) => state.resultsReducer);
 
   const stepsInfo = [
     {
@@ -43,8 +45,6 @@ export default function Steps() {
         movies,
         categories,
       });
-
-      console.log(res.data);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -55,9 +55,7 @@ export default function Steps() {
     mutationKey: ["sendInfo"],
     mutationFn: sendInfo,
     onSuccess: (data) => {
-      console.log(data);
       dispatch(update(data));
-      console.log(results);
       router.push("/results");
     },
   });
@@ -66,6 +64,7 @@ export default function Steps() {
     const allFinished = stepsInfo.every((step) => step.isFinished);
     if (allFinished) {
       mutate();
+      setAnimation(true);
     } else {
       stepsInfo.forEach((step) => {
         !step.isFinished
@@ -78,7 +77,6 @@ export default function Steps() {
   }
   return (
     <div className="flex flex-col max-w-5xl gap-12 px-4 py-12 mx-auto">
-      {isLoading && <>lodink</>}
       <div className="flex flex-wrap items-start gap-8">
         {stepsInfo.map((step) => (
           <div
@@ -121,6 +119,14 @@ export default function Steps() {
           </Link>
         )}
       </div>
+      {animation && (
+        <LoadingResultsAnimation
+          actors={actors}
+          movies={movies}
+          categories={categories}
+          open={animation}
+        />
+      )}
     </div>
   );
 }

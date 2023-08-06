@@ -47,7 +47,7 @@ export default function Steps() {
       });
       return res.data;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 

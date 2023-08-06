@@ -3,12 +3,10 @@ import { update, remove } from "@/redux/features/categories-slice";
 import { useDispatch } from "react-redux";
 import { Poppins } from "next/font/google";
 import { AppDispatch, useAppSelector } from "@/redux/store";
+import { Category } from "@/types/Category";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 type Props = {
-  category: {
-    id: string;
-    name: string;
-  };
+  category: Category;
 };
 export default function SingleCategory(props: Props) {
   const dispatch = useDispatch<AppDispatch>();
@@ -25,7 +23,6 @@ export default function SingleCategory(props: Props) {
         } else {
           dispatch(update(category));
         }
-        console.log(categories);
       }}
       className={`p-2 duration-200 border-2 rounded-lg shadow-md cursor-pointer hover:opacity-90 hover:border-primary ${
         categories.some((categoryElement) => categoryElement.id === category.id)

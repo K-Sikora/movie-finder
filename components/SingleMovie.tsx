@@ -6,13 +6,10 @@ import { Poppins } from "next/font/google";
 import { Button } from "./ui/button";
 import { AiOutlineCheck } from "react-icons/ai";
 import { AppDispatch, useAppSelector } from "@/redux/store";
+import { Movie } from "@/types/Movie";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 type Props = {
-  movie: {
-    id: string;
-    title: string;
-    poster_path: string;
-  };
+  movie: Movie;
 };
 export default function SingleMovie(props: Props) {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,7 +28,6 @@ export default function SingleMovie(props: Props) {
         } else {
           dispatch(update(movie));
         }
-        console.log(movies);
       }}
       className={`relative flex flex-col gap-2 pb-2 duration-200 border-2 rounded-lg shadow-md cursor-pointer hover:opacity-90 hover:border-primary ${
         movies.some((movieElement) => movieElement.id === movie.id)

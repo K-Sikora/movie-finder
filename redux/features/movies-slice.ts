@@ -1,17 +1,14 @@
+import { Movie } from "@/types/Movie";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-type InitialState = {
-  id: string;
-  poster_path: string;
-  title: string;
-};
+
 export const movies = createSlice({
   name: "movies",
-  initialState: [] as InitialState[],
+  initialState: [] as Movie[],
   reducers: {
-    update: (state, action: PayloadAction<InitialState>) => {
+    update: (state, action: PayloadAction<Movie>) => {
       return [...state, action.payload];
     },
-    remove: (state, action: PayloadAction<string>) => {
+    remove: (state, action: PayloadAction<number>) => {
       const idToRemove = action.payload;
       return state.filter((item) => item.id !== idToRemove);
     },

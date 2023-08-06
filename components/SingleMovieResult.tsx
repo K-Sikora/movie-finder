@@ -1,30 +1,18 @@
 "use client";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import { AiFillStar, AiOutlineCheck, AiOutlineLike } from "react-icons/ai";
+import { AiFillStar, AiOutlineLike } from "react-icons/ai";
 import { BsCalendar3 } from "react-icons/bs";
-import { FaImdb, FaRegClock } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { Movie } from "@/types/Movie";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 type Props = {
-  movie: {
-    poster_path: string;
-    id: number;
-    imdb_id: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    release_date: string;
-    runtime: number;
-    title: string;
-    vote_average: number;
-    vote_count: number;
-  };
+  movie: Movie;
 };
 export default function SingleMovieResult(props: Props) {
   const { movie } = props;
-  console.log(movie);
   return (
     <div
       className={`flex w-full min-h-[9rem] md:h-56 border rounded-lg shadow-lg ${poppins.className}`}

@@ -1,20 +1,15 @@
 "use client";
 import Image from "next/image";
 import { update, remove } from "@/redux/features/actors-slice";
-
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { Poppins } from "next/font/google";
 import { Button } from "./ui/button";
 import { AiOutlineCheck } from "react-icons/ai";
 import { AppDispatch, useAppSelector } from "@/redux/store";
+import { Actor } from "@/types/Actor";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 type Props = {
-  actor: {
-    id: string;
-    name: string;
-    profile_path: string;
-  };
+  actor: Actor;
 };
 export default function SingleActor(props: Props) {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,7 +26,6 @@ export default function SingleActor(props: Props) {
         } else {
           dispatch(update(actor));
         }
-        console.log(actors);
       }}
       className={`relative flex flex-col gap-2 pb-2 duration-200 border-2 rounded-lg shadow-md cursor-pointer hover:opacity-90 hover:border-primary ${
         actors.some((actorElement) => actorElement.id === actor.id)

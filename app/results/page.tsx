@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 export default function Results() {
   const router = useRouter();
   const recommended = useAppSelector((state) => state.resultsReducer);
-  console.log(recommended);
   if (!recommended) {
     return router.push("/");
   }

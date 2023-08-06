@@ -1,5 +1,4 @@
 import ChooseActors from "@/components/ChooseActors";
-import ChooseMovies from "@/components/ChooseMovies";
 import DividerHeading from "@/components/DividerHeading";
 import QueryProvider from "@/components/QueryProvider";
 import SingleActor from "@/components/SingleActor";

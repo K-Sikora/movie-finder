@@ -25,7 +25,7 @@ export default function SingleMovieResult(props: Props) {
           className="object-cover w-full rounded-l-lg"
         />
       </div>
-      <div className="flex flex-col justify-between p-2 md:p-4">
+      <div className="flex flex-col justify-between w-full p-2 md:p-4">
         <div className="flex flex-col gap-2">
           <h2 className="text-lg font-medium md:text-xl">{movie.title}</h2>
           <p className="text-sm line-clamp-3 md:line-clamp-5">
@@ -46,10 +46,10 @@ export default function SingleMovieResult(props: Props) {
             {movie.runtime}m
           </div>
           <Button
-            className="w-7 h-7 md:w-8 md:h-8"
+            className="w-6 h-6 md:w-7 md:h-7"
             size="icon"
           >
-            <AiOutlineLike size={19} />
+            <AiOutlineLike size={17} />
           </Button>
           <div className="flex items-center gap-1 md:ml-auto">
             <Link

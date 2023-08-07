@@ -9,11 +9,11 @@ export default function Navbar() {
         <Link href="/">
           <Image
             priority
-            src="/logo.png"
+            src="/logo.svg"
             alt="site logo"
             height={40}
             width={40}
-            className="w-10 mx-auto"
+            className="mx-auto w-7 md:w-10"
           />
         </Link>
         <div>

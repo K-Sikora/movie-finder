@@ -24,7 +24,9 @@ export default function RootLayout({
         lang="en"
         suppressHydrationWarning
       >
-        <body className={space_grotesk.className}>
+        <body
+          className={`${space_grotesk.className} min-w-[300px] overflow-auto`}
+        >
           <ThemesProvider>
             <ReduxProvider>
               <Navbar />

@@ -1,5 +1,5 @@
-import Hero from "@/components/Hero";
-import Overview from "@/components/Overview";
+import Hero from "@/components/Homepage/Hero";
+import Overview from "@/components/Homepage/Overview";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import getPopularMovies from "@/lib/services/getPopularMovies";

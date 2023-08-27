@@ -1,5 +1,5 @@
 import { Actor } from "@/types/Actor";
-import SearchActor from "./SearchActor";
+import SearchActor from "./Search/SearchActor";
 import SingleActor from "./SingleActor";
 import getActorsByName from "@/lib/services/getActorsByName";
 

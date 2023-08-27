@@ -1,7 +1,7 @@
 import ChooseCategories from "@/components/ChooseCategories";
 import Container from "@/components/Container";
 import DividerHeading from "@/components/DividerHeading";
-import QueryProvider from "@/components/QueryProvider";
+import QueryProvider from "@/components/Providers/QueryProvider";
 import Steps from "@/components/Steps";
 
 export default async function Categories() {

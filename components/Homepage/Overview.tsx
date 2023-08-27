@@ -1,11 +1,11 @@
 import { Movie } from "@/types/Movie";
-import ScrollCarousel from "./ScrollCarousel";
+import ScrollCarousel from "../ScrollCarousel";
 import { FiPlay } from "react-icons/fi";
 import { BiRightArrowAlt } from "react-icons/bi";
 import Link from "next/link";
-import Container from "./Container";
-import { Button, buttonVariants } from "./ui/button";
-import StepCard from "./Homepage/StepCard";
+import Container from "../Container";
+import { Button, buttonVariants } from "../ui/button";
+import StepCard from "./StepCard";
 import { RiArrowDownDoubleFill } from "react-icons/ri";
 
 const steps = [

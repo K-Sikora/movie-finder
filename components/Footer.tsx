@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
+import { TmdbInfo } from "./TmdbInfo";
 
 export default function Footer() {
   return (
@@ -20,15 +21,8 @@ export default function Footer() {
           />
           <span className="hidden md:block">Movie Recommender</span>
         </Link>
-        <ul className="flex flex-wrap items-center gap-6 font-medium text-gray-800 dark:text-gray-200 sm:mt-0">
-          <li>
-            <a
-              href="#"
-              className="hover:underline"
-            >
-              API
-            </a>
-          </li>
+        <ul className="flex flex-wrap items-center gap-6 font-medium text-gray-800 dark:text-gray-200">
+          <TmdbInfo />
           <li>
             <a
               href="#"

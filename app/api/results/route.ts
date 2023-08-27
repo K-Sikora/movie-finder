@@ -41,7 +41,6 @@ export async function POST(request: Request) {
   const actorIds = parsed.actors.map((actor) => actor.id).join("%7C");
 
   const movieIds = parsed.movies.map((movie) => movie.id);
-  console.log(movieIds);
   const getKeywords = movieIds.map(async (movieId) => {
     const res = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/keywords`,
@@ -53,17 +52,14 @@ export async function POST(request: Request) {
   });
   const keywordPromises = await Promise.all(getKeywords);
   const allKeywordIds = keywordPromises.flatMap((ids) => ids).join("%");
-  console.log(allKeywordIds);
   const discover = await fetch(
     `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_count.desc&with_cast=${actorIds}&with_genres=${categoryIds}&with_keywords=${allKeywordIds}`,
     options
   );
 
   const discoverData = await discover.json();
-  console.log(discoverData);
 
   const resultMovieIds = discoverData.results.map((movie: Movie) => movie.id);
-  console.log(resultMovieIds);
 
   async function getMovieDetails(id: number) {
     const res = await fetch(
@@ -77,7 +73,6 @@ export async function POST(request: Request) {
   const detailedDiscoverData = await Promise.all(
     resultMovieIds.map((movieId: number) => getMovieDetails(movieId))
   );
-  console.log(detailedDiscoverData);
 
   return NextResponse.json(detailedDiscoverData);
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Container from "./Container";
-import { Button, buttonVariants } from "./ui/button";
+import Container from "../Container";
+import { Button, buttonVariants } from "../ui/button";
 
 export default function SimpleSlider() {
   return (

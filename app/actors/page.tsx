@@ -1,4 +1,5 @@
 import ChooseActors from "@/components/ChooseActors";
+import Container from "@/components/Container";
 import DividerHeading from "@/components/DividerHeading";
 import QueryProvider from "@/components/QueryProvider";
 import SingleActor from "@/components/SingleActor";
@@ -20,7 +21,7 @@ export default async function Actors(props: Props) {
       <QueryProvider>
         <Steps />
       </QueryProvider>
-      <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
+      <Container className="min-h-screen pb-12">
         <div className="flex flex-col">
           <DividerHeading>1. Choose your favorite actors</DividerHeading>
           <span className="mt-2 text-sm">Select at least 3 actors</span>
@@ -38,7 +39,7 @@ export default async function Actors(props: Props) {
             </div>
           )}
         </div>
-      </div>
+      </Container>
     </>
   );
 }

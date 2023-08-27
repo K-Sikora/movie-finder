@@ -9,6 +9,7 @@ import SingleMovie from "./SingleMovie";
 import SingleCategory from "./SingleCategory";
 import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
+import Container from "./Container";
 
 export function InfoDrawer() {
   const categories = useAppSelector((state) => state.categoriesReducer);
@@ -24,7 +25,7 @@ export function InfoDrawer() {
         <Drawer.Content className="flex flex-col z-40 rounded-t-[10px] max-h-[70vh] md:max-h-[85vh] mt-24 fixed bottom-0 left-0 right-0">
           <div className="p-4 bg-background rounded-t-[10px] overflow-auto flex-1">
             <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300 mb-8" />
-            <div className="max-w-5xl mx-auto">
+            <Container>
               <Drawer.Title className="mb-4 font-medium">
                 Your currently chosen actors, movies and categories.
               </Drawer.Title>
@@ -55,10 +56,10 @@ export function InfoDrawer() {
                   />
                 ))}
               </div>
-            </div>
+            </Container>
           </div>
           <div className="p-4 mt-auto border-t bg-background">
-            <div className="flex justify-end max-w-5xl gap-6 px-4 mx-auto">
+            <div className="flex justify-end max-w-6xl gap-6 px-4 mx-auto">
               <Link href="https://github.com/K-Sikora">
                 <AiFillGithub size={20} />
               </Link>

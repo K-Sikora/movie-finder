@@ -1,12 +1,16 @@
+import Hero from "@/components/Hero";
+import Overview from "@/components/Overview";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
+import getPopularMovies from "@/lib/services/getPopularMovies";
 import { SignInButton } from "@clerk/nextjs";
-import Image from "next/image";
 import Link from "next/link";
-export default function Home() {
+export default async function Home() {
+  const { results } = await getPopularMovies();
   return (
-    <main className="flex items-center justify-center max-w-5xl min-h-screen px-4 mx-auto -mt-20 bg-background">
-      <div className="flex gap-8 flex-col p-8 border justify-center rounded-md max-w-[450px] h-96">
+    <main className="min-h-screen -mt-20 bg-background">
+      <Hero />
+      {/* <div className="flex gap-8 flex-col p-8 border justify-center rounded-md max-w-[450px] h-96">
         <div className="flex flex-col gap-1">
           <h1 className="text-lg font-semibold md:text-xl">
             Movie Recommender
@@ -30,7 +34,8 @@ export default function Home() {
         >
           Continue
         </Link>
-      </div>
+      </div> */}
+      <Overview movies={results} />
     </main>
   );
 }

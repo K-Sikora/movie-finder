@@ -1,4 +1,5 @@
 "use client";
+import Container from "@/components/Container";
 import DividerHeading from "@/components/DividerHeading";
 import SingleMovieResult from "@/components/SingleMovieResult";
 import { useAppSelector } from "@/redux/store";
@@ -11,7 +12,7 @@ export default function Results() {
     return router.push("/");
   }
   return (
-    <div className="flex flex-col max-w-5xl gap-12 px-4 py-12 mx-auto">
+    <Container className="flex flex-col gap-12 py-12">
       <DividerHeading>Movies you might like</DividerHeading>
 
       <div className="grid gap-2 gap-y-8 ">
@@ -24,6 +25,6 @@ export default function Results() {
             />
           ))}
       </div>
-    </div>
+    </Container>
   );
 }

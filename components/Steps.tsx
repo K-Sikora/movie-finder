@@ -12,6 +12,7 @@ import { useToast } from "./ui/use-toast";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import LoadingResultsAnimation from "./LoadingResultsAnimation";
+import Container from "./Container";
 export default function Steps() {
   const [animation, setAnimation] = useState(false);
   const pathname = usePathname();
@@ -76,7 +77,7 @@ export default function Steps() {
     }
   }
   return (
-    <div className="flex flex-col max-w-5xl gap-12 px-4 py-12 mx-auto">
+    <Container className="flex flex-col gap-12 py-12">
       <div className="flex flex-wrap items-start gap-8">
         {stepsInfo.map((step) => (
           <div
@@ -127,6 +128,6 @@ export default function Steps() {
           open={animation}
         />
       )}
-    </div>
+    </Container>
   );
 }

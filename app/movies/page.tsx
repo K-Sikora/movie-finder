@@ -1,4 +1,5 @@
 import ChooseMovies from "@/components/ChooseMovies";
+import Container from "@/components/Container";
 import DividerHeading from "@/components/DividerHeading";
 import QueryProvider from "@/components/QueryProvider";
 import SingleMovie from "@/components/SingleMovie";
@@ -19,7 +20,7 @@ export default async function Movies(props: Props) {
       <QueryProvider>
         <Steps />
       </QueryProvider>
-      <div className="max-w-5xl min-h-screen px-4 pb-12 mx-auto">
+      <Container className="min-h-screen pb-12">
         <div className="flex flex-col">
           <DividerHeading>2. Choose your favorite movies</DividerHeading>
           <span className="mt-2 text-sm">Select at least 3 movies</span>
@@ -38,7 +39,7 @@ export default async function Movies(props: Props) {
             </div>
           )}
         </div>
-      </div>
+      </Container>
     </>
   );
 }

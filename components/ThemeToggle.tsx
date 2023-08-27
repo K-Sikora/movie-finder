@@ -16,7 +16,6 @@ export default function ThemeToggle() {
     return null;
   }
 
-  console.log(theme);
   return (
     <Button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

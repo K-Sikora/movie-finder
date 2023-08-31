@@ -6,9 +6,10 @@ import Container from "./Container";
 import SingleListMovie from "./SingleListMovie";
 
 export default function List() {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
+
   if (user) {
-    const { data, error } = trpc.getUserMovies.useQuery(user.id);
+    const { data } = trpc.getUserMovies.useQuery(user.id);
     return (
       <div className="min-h-screen py-24">
         <Container>

@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import ReduxProvider from "@/redux/provider";
 import Footer from "@/components/Footer";
+import QtrpcProvider from "./trpc/Provider";
 const space_grotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,10 +31,12 @@ export default function RootLayout({
         >
           <ThemesProvider>
             <ReduxProvider>
-              <Navbar />
-              {children}
-              <Toaster />
-              <Footer />
+              <QtrpcProvider>
+                <Navbar />
+                {children}
+                <Toaster />
+                <Footer />
+              </QtrpcProvider>
             </ReduxProvider>
           </ThemesProvider>
         </body>

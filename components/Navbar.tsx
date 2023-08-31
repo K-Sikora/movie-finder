@@ -1,9 +1,8 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import Container from "./Container";
-
+import User from "./Navbar/User";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-20 flex items-center h-20 backdrop-blur-md">
@@ -24,13 +23,7 @@ export default function Navbar() {
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button
-            size="sm"
-            variant="outline"
-            className="text-foreground"
-          >
-            Sign in
-          </Button>
+          <User />
         </div>
       </Container>
     </header>

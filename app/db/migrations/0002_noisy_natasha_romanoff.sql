@@ -1,0 +1,1 @@
+ALTER TABLE "movies" ALTER COLUMN "rating" SET DATA TYPE numeric(3, 2);

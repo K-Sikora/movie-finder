@@ -1,7 +1,6 @@
 import ChooseMovies from "@/components/ChooseMovies";
 import Container from "@/components/Container";
 import DividerHeading from "@/components/DividerHeading";
-import QueryProvider from "@/components/Providers/QueryProvider";
 import SingleMovie from "@/components/SingleMovie";
 import Steps from "@/components/Steps";
 import getPopularMovies from "@/lib/services/getPopularMovies";
@@ -17,9 +16,7 @@ export default async function Movies(props: Props) {
   const { results }: { results: Movie[] } = data;
   return (
     <>
-      <QueryProvider>
-        <Steps />
-      </QueryProvider>
+      <Steps />
       <Container className="min-h-screen pb-12">
         <div className="flex flex-col">
           <DividerHeading>2. Choose your favorite movies</DividerHeading>

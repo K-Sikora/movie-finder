@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "../Container";
 import { Button, buttonVariants } from "../ui/button";
+import SignInHero from "./SignInHero";
 
 export default function SimpleSlider() {
   return (
@@ -31,12 +32,7 @@ export default function SimpleSlider() {
             >
               Continue
             </Link>
-            <Button
-              size="lg"
-              className="bg-transparent border border-white"
-            >
-              Sign in
-            </Button>
+            <SignInHero />
           </div>
         </Container>
       </div>
